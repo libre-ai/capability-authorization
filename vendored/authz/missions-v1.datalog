@@ -1,0 +1,16 @@
+// Libre AI Missions authorizer policy v1.
+// Token authority MUST provide user(), tenant(), role(user, role) and expiration check.
+// Handler MUST inject time(), resource(), operation() and resource_tenant().
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "requester"), operation($operation), ["propose", "read", "export"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "approver"), operation($operation), ["assess-risk", "approve", "refuse", "accept-result", "reject-result", "abandon", "read", "export"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "operator"), operation($operation), ["start", "pause", "resume", "cancel", "answer-decision", "read", "export"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "reviewer"), operation($operation), ["accept-result", "reject-result", "abandon", "read", "export"].contains($operation);
+
+// Orchestrator tokens are attenuated to one resource and these two operations.
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "orchestrator"), operation($operation), ["report-event", "submit-result"].contains($operation);
+
+deny if true;

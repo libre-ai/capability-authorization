@@ -1,0 +1,57 @@
+// Libre AI Biscuit authority block template v2.
+// Extends v1 with the loop-security kernel K1 agent identity taxonomy
+// (docs/specifications/LOOP-SECURITY-KERNEL.md, section K1, realized at the
+// orchestrator lock). Values are issuer-side parameters. No PII or content is
+// permitted.
+//
+// Human and browser-session tokens continue to use the v1 authority block.
+// Agent-fleet tokens (the self-feeding loop, opened at the wave-3 lock) use this
+// v2 block, which carries the three K1 identity facts.
+
+user({user});
+tenant({tenant});
+role({user}, {role});
+
+// K1 identity taxonomy — the three agent facts of LOOP-SECURITY-KERNEL.md K1.
+// agent_fleet: every agent belongs to exactly one fleet (e.g. forge, product-ops).
+// mission_agent: the mission the agent operates within (agent-side identity).
+// capability_scope: the explicit permission vector (which tools, which write
+// paths; CI and gates are never granted by default).
+agent_fleet({agent}, {fleet});
+mission_agent({agent}, {mission});
+capability_scope({agent}, {capability});
+
+// An agent token must carry its identity facts, or it holds no authority.
+check if agent_fleet($agent, $fleet);
+check if mission_agent($agent, $mission);
+
+// Expiry (unchanged from v1).
+check if time($time), $time < {expires_at};
+
+// ── Enforcement status: what this template guarantees vs. what is deferred ──
+//
+// CONFIRMED by the socle today:
+// - Per-agent_id revocation, fail-closed. This template carries no
+//   token-supplied revocation identifier (the contract gate forbids one), so
+//   revocation is keyed on agent_id: a revoked agent issues no new tokens and an
+//   unavailable revocation store denies. Consistent with the G1 Biscuit doctrine.
+//
+// DEFERRED to the authorizer-wiring increment — NOT enforced by this template:
+// - Cross-fleet and cross-mission isolation is NOT yet in force. The current
+//   agent-runs authorizer (contracts/authz/agent-runs-v1.datalog) checks
+//   token_mission / resource_mission and roles, but does NOT consume agent_fleet
+//   or mission_agent. Until a successor authorizer (agent-runs v2) adds `check
+//   if` clauses over agent_fleet and mission_agent, these facts are identity
+//   metadata, not an enforced boundary. Tracked as a backlog precondition of
+//   promotion to `locked` (docs/reviews/authority-v2/REVIEW-PACKAGE.md,
+//   STATUS.md "Explicitly deferred").
+// - capability_scope validation is a crate responsibility (checked at the
+//   tool/write-path boundary). The block encodes the fact; it does not validate
+//   the capability set, and never grants CI or gate write by default.
+//
+// AUTHORIZER COMPATIBILITY (issuance requirement, not part of K1 identity):
+// - agent-runs-v1 additionally requires a token_mission fact at authorization
+//   time. authz-biscuit injects it during issuance as the per-token operating
+//   mission — distinct from the mission_agent identity fact above. The wiring
+//   increment must bind the per-token operating mission to the agent's
+//   mission_agent set (token operates only within a mission the agent belongs to).

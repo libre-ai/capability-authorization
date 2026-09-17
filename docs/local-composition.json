@@ -1,0 +1,21 @@
+{
+  "status": "local-source-composition-not-registry-release",
+  "originalInputs": "code-recovery-provenance.json",
+  "adaptedFiles": [
+    {
+      "path": "bun.lock",
+      "originalSha256": "6703662cc69b8f39326f561d3f217fad78eae4e38a9ef1490a1724a6483565c3",
+      "currentSha256": "88f12007e6ed0b4d7cf0c4356342bdae39b3eb20d927c9613ff825bf27d14741"
+    },
+    {
+      "path": "package.json",
+      "originalSha256": "c34cafa7c1afcee86b5cc67ab2a259648776e1315dbf230f1e6defb1fe3e5d32",
+      "currentSha256": "3831aef8e1a881a341b57f2238cb29ed11bbab6ff50ee9774e3e14f4c930179f"
+    }
+  ],
+  "notes": [
+    "Existing APIs and package versions retained.",
+    "No historical deployment workflows activated.",
+    "Current contracts resolve to sibling schemas-and-contracts; recovery directory is provenance only."
+  ]
+}

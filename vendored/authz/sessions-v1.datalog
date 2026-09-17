@@ -1,0 +1,16 @@
+// Libre AI Sessions authorizer policy v1.
+// Token authority MUST provide user(), tenant(), role(user, role) and expiration check.
+// Handler MUST inject time(), resource(), operation(), resource_tenant() and audience() when applicable.
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "owner"), operation($operation), ["create-space", "add-member", "create-session", "set-audience", "attach-source", "join", "submit", "draft", "approve", "reject", "close", "export", "delete", "read"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "facilitator"), operation($operation), ["create-session", "set-audience", "attach-source", "join", "submit", "draft", "approve", "reject", "close", "export", "read"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "participant"), operation($operation), ["join", "submit"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "participant"), operation("read"), audience("session");
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "participant"), operation("read"), audience("private"), contribution_owner($user);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "observer"), operation("read"), audience("session");
+
+deny if true;

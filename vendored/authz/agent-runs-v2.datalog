@@ -1,0 +1,47 @@
+// Libre AI agent-run authorizer policy v2 candidate.
+// Successor of agent-runs-v1 (locked). v2 enforces the loop-security kernel K1
+// agent identity boundary that v1 left as unenforced metadata: every agent-role
+// allow rule additionally requires the agent's fleet to match the resource fleet
+// (agent_fleet + resource_fleet) and the agent to be a member of the operating
+// mission (mission_agent binds token_mission / resource_mission). Human roles
+// (operator, protected-controller) use authority-v1 and are unchanged.
+//
+// Token authority MUST provide user(), tenant(), role(user, role), token_mission()
+// and expiration checks. Agent tokens (authority-v2) MUST additionally provide
+// agent_fleet(user, fleet) and mission_agent(user, mission). Run/reviewer tokens
+// MUST additionally provide token_run(), token_plan_digest(),
+// token_authorization_digest() or token_subject_digest() as applicable.
+// Handler MUST inject resource(), operation(), resource_tenant(), resource_mission(),
+// resource_fleet(), resource_run(), resource_plan_digest(),
+// resource_authorization_digest(), resource_subject_digest(), subject_type(),
+// quorum_valid() and protected_gate_valid().
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "author-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("submit-plan"), subject_type("execution-plan");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "author-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("submit-result"), subject_type("mission-result");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "author-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("read-own-run");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "reviewer-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_subject_digest($digest), resource_subject_digest($digest), operation("read-review-subject");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "reviewer-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_subject_digest($digest), resource_subject_digest($digest), operation("submit-plan-review"), subject_type("execution-plan");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "reviewer-agent"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_subject_digest($digest), resource_subject_digest($digest), operation("submit-result-review"), subject_type("mission-result");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "mission-service"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("compute-quorum");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "mission-service"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("issue-execution"), subject_type("execution-plan"), quorum_valid($resource), resource_subject_digest($digest);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "mission-service"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), operation("validate-result"), subject_type("mission-result"), quorum_valid($resource), resource_subject_digest($digest);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "orchestrator"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_plan_digest($plan), resource_plan_digest($plan), token_authorization_digest($authorization), resource_authorization_digest($authorization), operation("start");
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "orchestrator"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_run($run), resource_run($run), token_plan_digest($plan), resource_plan_digest($plan), token_authorization_digest($authorization), resource_authorization_digest($authorization), operation($operation), ["report-event", "submit-result"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "harness"), agent_fleet($user, $fleet), resource_fleet($fleet), mission_agent($user, $mission), token_mission($mission), resource_mission($mission), token_run($run), resource_run($run), token_plan_digest($plan), resource_plan_digest($plan), token_authorization_digest($authorization), resource_authorization_digest($authorization), operation($operation), ["invoke-planned-tool", "attest-lineage", "attest-review", "attest-isolation", "report-budget"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "operator"), operation($operation), ["start", "pause", "resume", "cancel", "answer-decision", "read", "export"].contains($operation);
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "protected-controller"), operation("confirm-protected-gate"), protected_gate_valid($resource);
+
+deny if true;

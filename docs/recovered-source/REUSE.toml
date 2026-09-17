@@ -1,0 +1,20 @@
+# REUSE 3.3 manifest of the authz-biscuit repository (born from the hub, ADR-0020).
+version = 1
+SPDX-PackageName = "authz-biscuit"
+SPDX-PackageSupplier = "Libre AI <https://github.com/libre-ai>"
+SPDX-PackageDownloadLocation = "https://github.com/libre-ai/authz-biscuit"
+
+[[annotations]]
+path = ["**"]
+precedence = "closest"
+SPDX-FileCopyrightText = "2026 Libre AI contributors"
+SPDX-License-Identifier = "EUPL-1.2"
+
+# Vendored upstream biscuit-auth 6.0.0 (plus upstream fix #306) keeps its
+# Apache-2.0 licence and copyright (LICENSING.md, "Third-party material");
+# provenance and the exact diff are recorded in its PATCH.md.
+[[annotations]]
+path = ["third_party/biscuit-auth-6.0.0/**", "third_party/patches/biscuit-auth-*.diff"]
+precedence = "override"
+SPDX-FileCopyrightText = "Geoffroy Couprie and the Eclipse Biscuit contributors"
+SPDX-License-Identifier = "Apache-2.0"

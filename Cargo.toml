@@ -1,0 +1,25 @@
+[package]
+name = "libre-ai-authz-biscuit"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97"
+license = "EUPL-1.2"
+repository = "https://github.com/libre-ai/authz-biscuit"
+publish = false
+
+[dependencies]
+# Exact 6.0.0, resolved to the vendored copy below. The published archive does
+# not compile with default features off (upstream #305); the copy carries the
+# merged fix #306 — see third_party/biscuit-auth-6.0.0/PATCH.md for provenance,
+# the exact diff and the removal condition.
+biscuit-auth = { version = "=6.0.0", default-features = false }
+# Version-matched parser of the biscuit-auth 6.0 printer (datalog 3.3 grammar):
+# the print/parse injectivity proof in SECURITY.md is bound to this exact pair.
+biscuit-parser = "=0.2.0"
+sha2 = { version = "=0.11.0", default-features = false }
+zeroize = { version = "=1.9.0", features = ["zeroize_derive"] }
+
+[workspace]
+
+[patch.crates-io]
+biscuit-auth = { path = "third_party/biscuit-auth-6.0.0" }

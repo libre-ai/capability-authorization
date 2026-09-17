@@ -1,0 +1,78 @@
+# Fiche d'état du projet — autorité de l'état depuis ADR-0020 (design §6.2).
+# La section statut du README est générée depuis cette fiche (sentinelles).
+schema_version: libre-ai.project.v1
+project: authz-biscuit
+repository: libre-ai/authz-biscuit
+kind: satellite
+layer: couche-3
+statement:
+  for: "les services internes qui doivent refuser une action par défaut et ne l'autoriser que sur preuve présentée"
+  who_faces: "des règles d'autorisation dispersées dans le code appelant, où un oubli se lit comme une permission, où l'ordre des contrôles varie d'un appel à l'autre, et où un jeton volé reste valable jusqu'à son expiration"
+  enables: "faire trancher chaque action par une politique versionnée exécutée dans un ordre de sécurité fixe, révocation comprise, sans jamais renvoyer le jeton dans une trace ou une erreur"
+  producing:
+    - "authorize — une décision liée à un principal vérifié, rendue par une politique datalog bornée en refus par défaut, ou une AuthzError portant l'un des six codes canoniques et aucun contenu de jeton"
+    - "BiscuitIssuer — des jetons Ed25519 bornés et atténuables, dont le Debug est caviardé et dont les octets ne sortent jamais par une erreur"
+    - "RevocationChecker — un contrôle de révocation qui refuse fermé lorsque le magasin est indisponible, au lieu de supposer l'absence de révocation"
+  without_depending_on:
+    - "aucun service d'autorisation tiers : la vérification est locale, sous les seules clés publiques de l'anneau fourni"
+    - "aucune copie éditable des politiques : les six fichiers datalog sont une projection octet-exacte de l'autorité contracts épinglée, embarquée à la compilation"
+summary: "Autorisation interne Biscuit Ed25519, refus par défaut : émission, atténuation, vérification, révocation et rotation à deux clés."
+current_situation: >-
+  Née verte en γ 3.4 ; six politiques datalog vendorées sous gate de dérive contre le pin contracts.
+scope:
+  - "API publique garantie (src/lib.rs) — autorisation : la fonction authorize et les types AuthorizationContext, AuthorizationDecision, CanonicalPolicy et VerifiedPrincipal."
+  - "API publique garantie — jetons : BiscuitIssuer, IssuanceRequest, AttenuationRequest, BoundedBiscuit, TokenBounds, AgentIdentity, SensitiveToken et SerializedBiscuit ; clés : VerificationKeyRing, VerificationKey, VerificationKeyStatus et PublicKeyMetadata ; révocation : RevocationChecker, RevocationStore, AgentRevocationStore, RevocationRecord, AgentRevocationRecord, RevocationTarget et RevocationStoreUnavailable ; erreurs : le type unique AuthzError."
+  - "Stabilité déclarée : aucune. La crate est en 0.1.0, publish = false, consommée en git-dep Cargo épinglée par SHA sous [sources.allow-org] ; une rupture voyage par montée de pin chez le consommateur. Les six codes canoniques de AuthzError (auth.tenant_mismatch, auth.biscuit_invalid, auth.biscuit_revoked, auth.agent_revoked, auth.key_unavailable, auth.operation_denied) sont épinglés de fait par tout appelant qui branche son comportement dessus : ils font partie de la surface à couvrir. Le critère compat-policy de la phase « service » est ce qui rendra cette stabilité opposable."
+  - "Ordre de sécurité fixe, non réordonnançable par l'appelant : vérifier la signature et la validité de clé, dériver l'identifiant du bloc d'autorité racine, refuser les termes décodés non injectifs, contrôler la révocation, exiger le bloc d'atténuation initial canonique, injecter les faits de requête faisant autorité, puis exécuter une politique bornée en refus par défaut."
+  - "Six politiques datalog projetées depuis l'autorité contracts — authority-v1, authority-v2, sessions-v1, missions-v1, agent-runs-v1, agent-runs-v2 — embarquées à la compilation par include_str! et vérifiées octet-exactes par bun run check:schemas contre le pin de package.json/bun.lock."
+  - "Bornes fermées : jetons limités à 16 384 octets à l'entrée comme à l'autorisation, cache de révocation borné à 10 000 entrées, rotation à deux clés exigeant un chevauchement d'au moins 900 secondes entre la clé courante et la clé en retrait."
+  - "Secrets tenus hors des traces : Debug caviardé sur les jetons et les clés privées, effacement mémoire (zeroize) des jetons refusés, et aucune valeur de jeton ni de terme rejeté dans AuthzError."
+  - "Hors périmètre : la crate ne tient ni le magasin de révocation ni l'anneau de clés (elle les consomme et refuse fermé quand ils manquent), n'écrit pas les politiques, et ne franchit jamais la frontière du navigateur."
+non_goals:
+  - "Franchir la frontière du navigateur : les jetons sérialisés par cette crate ne doivent jamais y parvenir — c'est un invariant du dépôt, pas une recommandation d'intégration."
+  - "Faire autorité sur les politiques : vendored/authz/ est une projection vérifiée, jamais canonique ; un changement de politique est une montée de pin contracts suivie d'une re-projection (--write), jamais une édition sur place."
+  - "Tenir le magasin de révocation ou l'anneau de clés : la crate les consomme par trait et refuse fermé quand ils sont indisponibles, plutôt que de faire un pari optimiste."
+  - "Authentifier l'utilisateur : elle autorise un principal déjà vérifié cryptographiquement, elle n'établit aucune identité et n'ouvre aucune session."
+  - "Servir de bibliothèque Biscuit générale : elle expose un usage spécialisé et fermé, pas la surface de biscuit-auth — l'atténuation admise est bornée par TokenBounds et par le bloc initial canonique."
+dependencies:
+  - on: libre-ai/contracts
+    why: "autorité des six politiques datalog projetées dans vendored/authz/ et vérifiées octet-exactes par check:schemas (I-05)"
+    pinned: "github:libre-ai/contracts#ee144f03cf7d3deeda02a9fcd5e10377c2e99cb4"
+  - on: libre-ai/governance
+    why: "gabarit de gates consommé en workflows réutilisables et git-dep d'outillage — jamais dupliqué"
+    pinned: "github:libre-ai/governance#8c238c09efd443a4866459160dac1cfee31d88be"
+  - on: biscuit-auth
+    why: "primitives Biscuit Ed25519 — release exacte 6.0.0, default-features désactivées, résolue vers une copie vendorée (archive publiée + correctif amont #306, third_party/biscuit-auth-6.0.0/PATCH.md) retirée dès qu'une version publiée porte le correctif"
+    pinned: "=6.0.0 via [patch.crates-io] (avec biscuit-parser =0.2.0, grammaire datalog 3.3 correspondante — preuve d'injectivité evidence/reviews/bfc2c0d/)"
+maturity: usable
+confidence: medium
+exposure: spec-published
+freshness:
+  last_verified_on: "2026-07-30"
+scope_stability: stable
+benchmark:
+  none: "n/a (shared brick, no external parity target)"
+phases:
+  - id: service
+    title: En service dans la constellation
+    exit_criteria:
+      - id: consumed-pinned
+        text: "La crate est consommée par les surfaces qui la déclarent ; ses six politiques datalog vendorées sont vérifiées byte-exactes contre l'autorité contracts."
+        weight: 1
+        status: accepted
+        evidence:
+          date: "2026-07-29"
+          reference: "gate-acceptance-log 2026-07-29 (ligne 3.4), PRs hub #279-#283"
+      - id: compat-policy
+        text: >-
+          La rupture est mécanique sur les trois surfaces que les consommateurs épinglent. Deux sont
+          à outiller : un instantané versionné de la surface publique réexportée par src/lib.rs, et
+          la liste exhaustive des six codes canoniques de AuthzError, tous deux comparés par
+          cargo test --locked — qui doit échouer si un symbole disparaît, est ajouté ou change de
+          signature, ou si un code disparaît ou change de valeur, sans montée conjointe de la
+          version de la crate et entrée au journal des ruptures. La troisième est déjà fermée :
+          bun run check:schemas échoue lorsqu'une des six politiques datalog dévie de l'autorité
+          contracts épinglée. Fermé le jour où les deux ruptures de surface, rejouées séparément,
+          font échouer cargo test --locked.
+        weight: 1
+        status: pending

@@ -1,0 +1,85 @@
+diff --git a/biscuit-auth/src/token/builder/check.rs b/biscuit-auth/src/token/builder/check.rs
+index 690a9900..9448a388 100644
+--- a/biscuit-auth/src/token/builder/check.rs
++++ b/biscuit-auth/src/token/builder/check.rs
+@@ -11,7 +11,9 @@ use crate::{
+     error, PublicKey,
+ };
+ 
+-use super::{display_rule_body, Convert, Rule, Term, ToAnyParam};
++#[cfg(feature = "datalog-macro")]
++use super::ToAnyParam;
++use super::{display_rule_body, Convert, Rule, Term};
+ 
+ /// Builder for a Biscuit check
+ #[derive(Debug, Clone, PartialEq, Eq)]
+diff --git a/biscuit-auth/src/token/builder/fact.rs b/biscuit-auth/src/token/builder/fact.rs
+index 806e1bd1..4a247f87 100644
+--- a/biscuit-auth/src/token/builder/fact.rs
++++ b/biscuit-auth/src/token/builder/fact.rs
+@@ -11,7 +11,9 @@ use crate::{
+     error,
+ };
+ 
+-use super::{Convert, Predicate, Term, ToAnyParam};
++#[cfg(feature = "datalog-macro")]
++use super::ToAnyParam;
++use super::{Convert, Predicate, Term};
+ 
+ /// Builder for a Datalog fact
+ #[derive(Debug, Clone, PartialEq, Eq)]
+diff --git a/biscuit-auth/src/token/builder/policy.rs b/biscuit-auth/src/token/builder/policy.rs
+index b3ee67c8..7679da32 100644
+--- a/biscuit-auth/src/token/builder/policy.rs
++++ b/biscuit-auth/src/token/builder/policy.rs
+@@ -8,7 +8,9 @@ use nom::Finish;
+ 
+ use crate::{error, PublicKey};
+ 
+-use super::{display_rule_body, Rule, Term, ToAnyParam};
++#[cfg(feature = "datalog-macro")]
++use super::ToAnyParam;
++use super::{display_rule_body, Rule, Term};
+ 
+ #[derive(Debug, Clone, PartialEq, Eq)]
+ pub enum PolicyKind {
+diff --git a/biscuit-auth/src/token/builder/rule.rs b/biscuit-auth/src/token/builder/rule.rs
+index 080cb4bc..151e024d 100644
+--- a/biscuit-auth/src/token/builder/rule.rs
++++ b/biscuit-auth/src/token/builder/rule.rs
+@@ -11,7 +11,9 @@ use crate::{
+     error, PublicKey,
+ };
+ 
+-use super::{Convert, Expression, Predicate, Scope, Term, ToAnyParam};
++#[cfg(feature = "datalog-macro")]
++use super::ToAnyParam;
++use super::{Convert, Expression, Predicate, Scope, Term};
+ 
+ /// Builder for a Datalog rule
+ #[derive(Debug, Clone, PartialEq, Eq)]
+diff --git a/biscuit-auth/src/token/builder/term.rs b/biscuit-auth/src/token/builder/term.rs
+index 08f7e642..66a61b4a 100644
+--- a/biscuit-auth/src/token/builder/term.rs
++++ b/biscuit-auth/src/token/builder/term.rs
+@@ -14,9 +14,9 @@ use crate::{
+     error,
+ };
+ 
++use super::{set, Convert, Fact};
+ #[cfg(feature = "datalog-macro")]
+-use super::AnyParam;
+-use super::{set, Convert, Fact, ToAnyParam};
++use super::{AnyParam, ToAnyParam};
+ 
+ /// Builder for a Datalog value
+ #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+@@ -530,7 +530,7 @@ impl ToAnyParam for [u8] {
+     }
+ }
+ 
+-#[cfg(feature = "uuid")]
++#[cfg(all(feature = "uuid", feature = "datalog-macro"))]
+ impl ToAnyParam for uuid::Uuid {
+     fn to_any_param(&self) -> AnyParam {
+         AnyParam::Term(Term::Bytes(self.as_bytes().to_vec()))

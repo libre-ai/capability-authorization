@@ -1,0 +1,19 @@
+// Build Brief dedicated resource policy v2 CANDIDATE; not an implementation grant.
+// Authority: user(), tenant(), role(), brief_resource(id, kind),
+// membership_revision(user, revision), brief_subject(digest), expiration check.
+// Host injects one request, current membership and independently resolved ownership.
+// Trusted context and contributor eligibility MUST come only from the authorizer.
+// The issuer MUST reject reserved host predicates in authority facts/rules.
+// Default trust includes authority + authorizer, never arbitrary appended blocks.
+// Browser cookies and Missions roles never establish these service grants.
+
+brief_context($user, $tenant, $resource, $kind, $operation, $revision) <- current_member($user, $tenant, $revision), resource($resource), resource_kind($kind), resource_tenant($tenant), operation($operation) trusting authority;
+brief_independent($user, $resource, $digest) <- non_contributor($user, $resource), resource_digest($digest) trusting authority;
+
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "build-brief-author"), membership_revision($user, $revision), brief_resource($resource, "spec-workspace"), brief_context($user, $tenant, $resource, "spec-workspace", $operation, $revision), ["author", "read", "export"].contains($operation);
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "build-brief-reviewer"), membership_revision($user, $revision), brief_resource($resource, "spec-workspace"), brief_context($user, $tenant, $resource, "spec-workspace", $operation, $revision), ["review", "read", "export"].contains($operation);
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "build-brief-approver"), membership_revision($user, $revision), brief_resource($resource, "spec-package"), brief_context($user, $tenant, $resource, "spec-package", "approve", $revision), brief_subject($digest), brief_independent($user, $resource, $digest);
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "build-brief-approver"), membership_revision($user, $revision), brief_resource($resource, "spec-package"), brief_context($user, $tenant, $resource, "spec-package", $operation, $revision), ["read", "export"].contains($operation);
+allow if user($user), tenant($tenant), resource_tenant($tenant), role($user, "build-brief-planner"), membership_revision($user, $revision), brief_resource($resource, "agent-handoff"), brief_context($user, $tenant, $resource, "agent-handoff", "plan", $revision);
+
+deny if true;

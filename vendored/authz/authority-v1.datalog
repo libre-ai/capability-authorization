@@ -1,0 +1,7 @@
+// Libre AI Biscuit authority block template v1.
+// Values are issuer-side parameters. No PII or content is permitted.
+
+user({user});
+tenant({tenant});
+role({user}, {role});
+check if time($time), $time < {expires_at};

@@ -1,0 +1,709 @@
+{
+  "sources": [
+    {
+      "source": "restored-sources/authz-biscuit",
+      "revision": "ac7bfa31d6121c7a004219c6bfbe549751c5c876",
+      "archiveSha256": null,
+      "files": [
+        {
+          "sourcePath": ".gitignore",
+          "destination": ".gitignore",
+          "sha256": "19b23de57a80020117177f6f3a34b5b5ce98c2623a8e8e6e211453bbf6458bfa"
+        },
+        {
+          "sourcePath": "Cargo.lock",
+          "destination": "Cargo.lock",
+          "sha256": "059500015c4efd4b3a1064f7f456d2d3c48d87e6c9032147bdf4f967f9ccd4a9"
+        },
+        {
+          "sourcePath": "Cargo.toml",
+          "destination": "Cargo.toml",
+          "sha256": "639626ca1c4c558a73db8137c6af5471334a4c43d477fe0e6ffe3fa38420ecfb"
+        },
+        {
+          "sourcePath": "G2-Z01-QUALIFICATION.md",
+          "destination": "G2-Z01-QUALIFICATION.md",
+          "sha256": "8da925de1c20e282ed7fb7943ab66b3823e7ebf1af0c45cccdec7fd6670757b6"
+        },
+        {
+          "sourcePath": "LICENSES/Apache-2.0.txt",
+          "destination": "LICENSES/Apache-2.0.txt",
+          "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+        },
+        {
+          "sourcePath": "LICENSES/EUPL-1.2.txt",
+          "destination": "LICENSES/EUPL-1.2.txt",
+          "sha256": "57fb42fbcd0b037ce528ed8f72f1ec095d67bc6825ecf1448ff39be1fe68a4b4"
+        },
+        {
+          "sourcePath": "README.md",
+          "destination": "docs/recovered-source/README.md",
+          "sha256": "a9c9c35cef9483a3a7cabc68f86a818e14d2757bdbbccd6e612506b483743a5c"
+        },
+        {
+          "sourcePath": "REUSE.toml",
+          "destination": "docs/recovered-source/REUSE.toml",
+          "sha256": "3f9d2cd23eb554fd0c6e642b82caec6d58757ae8424fbcc0aec65bfd6208dd9e"
+        },
+        {
+          "sourcePath": "SECURITY.md",
+          "destination": "SECURITY.md",
+          "sha256": "37da62bbfd00013f452734669fc4162d8c1dbf96bcb2712f9c827823c519401b"
+        },
+        {
+          "sourcePath": "biome.json",
+          "destination": "biome.json",
+          "sha256": "0cb1f46593b1c2f93291e61ca894bd2213fa326c0d9d11998a70c9bed7b25855"
+        },
+        {
+          "sourcePath": "bun.lock",
+          "destination": "bun.lock",
+          "sha256": "6703662cc69b8f39326f561d3f217fad78eae4e38a9ef1490a1724a6483565c3"
+        },
+        {
+          "sourcePath": "bunfig.toml",
+          "destination": "bunfig.toml",
+          "sha256": "5da4d7eb4d1e5c1c37d487034e56773e8e1f568daec675b114c5257942f48342"
+        },
+        {
+          "sourcePath": "deny.toml",
+          "destination": "deny.toml",
+          "sha256": "8fbd07c98a3d69cfdd87e7cd27ed249bb73fecb77fd35ae7846fa84f65fd7eaf"
+        },
+        {
+          "sourcePath": "evidence/AUTHORIZATION-POLICY-REVIEW.md",
+          "destination": "evidence/AUTHORIZATION-POLICY-REVIEW.md",
+          "sha256": "37e1d607e6e1ce066f4a945b55ca1dca456d1e747c3e063eeba0a65ea67cc5a8"
+        },
+        {
+          "sourcePath": "evidence/KEY-ROTATION-REVIEW.md",
+          "destination": "evidence/KEY-ROTATION-REVIEW.md",
+          "sha256": "7182365b85d71f085e1dd2c3962e82fca53f289bc9dc3187f3506b9ffddd4bbf"
+        },
+        {
+          "sourcePath": "evidence/reviews/22a3bfc/CANDIDATE-INTEGRATION.md",
+          "destination": "evidence/reviews/22a3bfc/CANDIDATE-INTEGRATION.md",
+          "sha256": "0ff110fcac31303134d66c8020678619564ccdd1f032a759fff7e40cb7e610c6"
+        },
+        {
+          "sourcePath": "evidence/reviews/81ce4b5/ROUND-2-GUARD-MUTATION-SCOPES-AND-PROVENANCE.md",
+          "destination": "evidence/reviews/81ce4b5/ROUND-2-GUARD-MUTATION-SCOPES-AND-PROVENANCE.md",
+          "sha256": "53bead7dbd8408fbe1284601c00ee7bf96d4eae2b18a33a93814db5959f2c85f"
+        },
+        {
+          "sourcePath": "evidence/reviews/81ce4b5/ROUND-3-ADDENDUM.md",
+          "destination": "evidence/reviews/81ce4b5/ROUND-3-ADDENDUM.md",
+          "sha256": "2e42dda64c607dca30d280730d9e84f8213687f1b6d3af4eae3edb2efb913563"
+        },
+        {
+          "sourcePath": "evidence/reviews/87a802e/REVERSE-ADVERSARIAL-REJECT.md",
+          "destination": "evidence/reviews/87a802e/REVERSE-ADVERSARIAL-REJECT.md",
+          "sha256": "f6a18c6e31de14a9d5e35f01b099272ed2cff50899af9b661bc6716e47a5a9b6"
+        },
+        {
+          "sourcePath": "evidence/reviews/bd7baeb/SCOPE-NOTICE.md",
+          "destination": "evidence/reviews/bd7baeb/SCOPE-NOTICE.md",
+          "sha256": "018f366979d758373fedb142d33ef113efc89b60a6d197cf6e2f6b65b808b621"
+        },
+        {
+          "sourcePath": "evidence/reviews/bd7baeb/authorization-policy-review.md",
+          "destination": "evidence/reviews/bd7baeb/authorization-policy-review.md",
+          "sha256": "414a0c22947d917b25a1f2504329854dc5573ec9cac7c2ebe1f99b346e745a93"
+        },
+        {
+          "sourcePath": "evidence/reviews/bd7baeb/key-rotation-review.md",
+          "destination": "evidence/reviews/bd7baeb/key-rotation-review.md",
+          "sha256": "36ab75267ec5506befc290e9e25bb84d6675c526605b39d9b0cc2f0d2141ef35"
+        },
+        {
+          "sourcePath": "evidence/reviews/bfc2c0d/PRINT-PARSE-INJECTIVITY-6-0.md",
+          "destination": "evidence/reviews/bfc2c0d/PRINT-PARSE-INJECTIVITY-6-0.md",
+          "sha256": "233a6222f1c37c090a04716bf753897979a7a6348bbfdd459b846be877048c1f"
+        },
+        {
+          "sourcePath": "evidence/reviews/fbbe360/REVERSE-ADVERSARIAL-REJECT.md",
+          "destination": "evidence/reviews/fbbe360/REVERSE-ADVERSARIAL-REJECT.md",
+          "sha256": "d6e548e6bd1a7c66869976378d2aa1ed30b2fcd84316884570bbdb0440f0d633"
+        },
+        {
+          "sourcePath": "package.json",
+          "destination": "package.json",
+          "sha256": "c34cafa7c1afcee86b5cc67ab2a259648776e1315dbf230f1e6defb1fe3e5d32"
+        },
+        {
+          "sourcePath": "project.v1.yaml",
+          "destination": "project.v1.yaml",
+          "sha256": "de032a68b63b353edbabdd443ae8d722456e8e82bf835c03cb5003da4940db49"
+        },
+        {
+          "sourcePath": "rust-toolchain.toml",
+          "destination": "rust-toolchain.toml",
+          "sha256": "eb8ed53423a7d9d3e3b3fc0367ee89426b4b9385114465919926b2829bfe7ecd"
+        },
+        {
+          "sourcePath": "scripts/check-vendored.ts",
+          "destination": "scripts/check-vendored.ts",
+          "sha256": "9c5993d5791b85d3c77a884df3b034ae5bd414d799e10a4879cba9ce75d5c040"
+        },
+        {
+          "sourcePath": "scripts/verify-vendored-biscuit-auth.sh",
+          "destination": "scripts/verify-vendored-biscuit-auth.sh",
+          "sha256": "4bfdf12b8276c90d7005c102744d93eda9f8e1bccd05b805e3f4a2f0166f5831"
+        },
+        {
+          "sourcePath": "src/authorize.rs",
+          "destination": "src/authorize.rs",
+          "sha256": "f984b0314d900e14eeb43d15109434de5fa0fd14ca735520caba0efc73d41203"
+        },
+        {
+          "sourcePath": "src/error.rs",
+          "destination": "src/error.rs",
+          "sha256": "f2eac69d44d133f3a585c7f257f02536f037936397b50bc16bfba86985082e57"
+        },
+        {
+          "sourcePath": "src/keys.rs",
+          "destination": "src/keys.rs",
+          "sha256": "d335f5edd931035ff32afffc749327bc5c86bd8b88cbc9366cfdccbad85c9aba"
+        },
+        {
+          "sourcePath": "src/lib.rs",
+          "destination": "src/lib.rs",
+          "sha256": "071d3e1431881a01968cb3f8f22a368abd2f95dcb9947212dc154ad44ec2a18a"
+        },
+        {
+          "sourcePath": "src/revocation.rs",
+          "destination": "src/revocation.rs",
+          "sha256": "99859dcbe8a17bb6f9323b7d3308bceac9305f6a8e0f92f6e8b60b1d175390eb"
+        },
+        {
+          "sourcePath": "src/token.rs",
+          "destination": "src/token.rs",
+          "sha256": "9699f54c3353a92a3a095bed2cc0a088257cc764ed364fcae7246c82dbf1e13b"
+        },
+        {
+          "sourcePath": "tests/authz.rs",
+          "destination": "tests/authz.rs",
+          "sha256": "f50d772e22792c9fc8ebc3a6e503a5935e2b5898806760382f6b203121af0959"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/.cargo_vcs_info.json",
+          "destination": "third_party/biscuit-auth-6.0.0/.cargo_vcs_info.json",
+          "sha256": "bf0f5d6eb34575087052632f22a3316b5e65a94002909ff0769e048611e3cdbb"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/CHANGELOG.md",
+          "destination": "third_party/biscuit-auth-6.0.0/CHANGELOG.md",
+          "sha256": "faa8c26a12c88fc3ceb13269f9dfbad91aa5328118be1b18dced6fa5cb5d08a6"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/Cargo.lock",
+          "destination": "third_party/biscuit-auth-6.0.0/Cargo.lock",
+          "sha256": "00a59875cc6bc87470061a2c6efa15671a6151f115597ae9ce1601011d953c40"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/Cargo.toml",
+          "destination": "third_party/biscuit-auth-6.0.0/Cargo.toml",
+          "sha256": "46783b82b5dea0a84d6eca3f9239f0c9d7cc06c150cb2166beb74ee83a9f15f1"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/Cargo.toml.orig",
+          "destination": "third_party/biscuit-auth-6.0.0/Cargo.toml.orig",
+          "sha256": "e8a09a8e077ed16cc3a98348ec658acf1e46afe0726aedba5897d6fcdb9e233d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/LICENSE",
+          "destination": "third_party/biscuit-auth-6.0.0/LICENSE",
+          "sha256": "c95bae1d1ce0235ecccd3560b772ec1efb97f348a79f0fbe0a634f0c2ccefe2c"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/PATCH.md",
+          "destination": "third_party/biscuit-auth-6.0.0/PATCH.md",
+          "sha256": "219d980f22a311c58a2d56a95bd32875a89c00af8b07a82633a22cd565180c5e"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/README.md",
+          "destination": "third_party/biscuit-auth-6.0.0/README.md",
+          "sha256": "b05b2d69c825b31e975ef3f49bfc77b62167fea49c4bff8f889bb952e2722faf"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/benches/token.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/benches/token.rs",
+          "sha256": "64ff2d40a701702ef7eeaec9eb2aed781a5be9f2e28138b1b0ed1e23692be714"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/build.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/build.rs",
+          "sha256": "5c70d44abf7100411e1be7d946a5dd038cfcd2fa1645dd1e07c5a41c3ed2e976"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/examples/printer.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/examples/printer.rs",
+          "sha256": "3dc87da6c1ef491468508577e1e2a32a89c715251929b1728a712927b3715418"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/examples/testcases.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/examples/testcases.rs",
+          "sha256": "15907f2a47dd9c8d64dd1b7496b1de0796dad15f9b2df65dd4f8a81c937d861b"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/examples/third_party.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/examples/third_party.rs",
+          "sha256": "18d3233d427c73c5c261bd49de7f58d0775725dc994f3f16c2804a7473a4fd4d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/examples/verifying_printer.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/examples/verifying_printer.rs",
+          "sha256": "c308ef71aa4b4096256b70967b733a4f4bd101b59c3f7eb03edff1db93323e2d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/README.md",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/README.md",
+          "sha256": "8055a53a525d579774dd0a6617e26b63b076da4666c3fe9f769868e5cabb4c2f"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/samples.json",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/samples.json",
+          "sha256": "a9f3640f589761d3c84d73756d882ff034129dcfdea06e82dc01a5a375ba4750"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test001_basic.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test001_basic.bc",
+          "sha256": "b5a57cecae570137304ab5e01574c51fcc7beafc03019b0ae6de33a9810c41dd"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test002_different_root_key.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test002_different_root_key.bc",
+          "sha256": "01d6f345e883ab8ccf072b12b7899d7fc55a41323a4ceca0c6fe7143c3100e6d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test003_invalid_signature_format.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test003_invalid_signature_format.bc",
+          "sha256": "7b4491d7d1b7c9942fdb5d75df3cbe343cab01f702c7d379847b9b9d2a54d20c"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test004_random_block.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test004_random_block.bc",
+          "sha256": "c79fbc8a4492c59da4c938eaf6ab29b09e513fc4f1b1b4a76c06d184c199ea65"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test005_invalid_signature.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test005_invalid_signature.bc",
+          "sha256": "9b3d98564e190023afb4f81b498d6ee153d68e6082db3ca7a679db329e6733e7"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test006_reordered_blocks.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test006_reordered_blocks.bc",
+          "sha256": "7201d9c16e5ca29803cfe9181023dd4711ac2724e126d44b98baf6b104ba254d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test007_scoped_rules.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test007_scoped_rules.bc",
+          "sha256": "9f49a6ac61c30803ba003e8abb96a8305dbbedbfef115a28d335de77487510d7"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test008_scoped_checks.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test008_scoped_checks.bc",
+          "sha256": "8dcb032b9c9811c9cd2f18d2b224c38939f0ea4dc9a78d446fa63fef9772fa4a"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test009_expired_token.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test009_expired_token.bc",
+          "sha256": "9fee8dda0df7fab369ef4836f30169677a72a3934d1f09b736fb149110610cf5"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test010_authorizer_scope.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test010_authorizer_scope.bc",
+          "sha256": "7cbdba2f9ab13a49dfb38997e4b9d5d9a958b7bd9a065cfe9be31d3cd1add3a3"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test011_authorizer_authority_caveats.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test011_authorizer_authority_caveats.bc",
+          "sha256": "ed05b9386a60bae9edc1df1e66b4a62d374fe42e1beb6f61d985a108dc99feca"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test012_authority_caveats.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test012_authority_caveats.bc",
+          "sha256": "9ea6c3552edcc7477c26a6d490a8dc9409beb3185259bad7382f95c6dfefaaf8"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test013_block_rules.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test013_block_rules.bc",
+          "sha256": "3ee0ee0373b56c00d50159a1a212f9f2dff9468129275fbfd8bfd19695ba832d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test014_regex_constraint.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test014_regex_constraint.bc",
+          "sha256": "ec2cfac64c7bd74eaa7affa79a344e95f1babca2dffd19fb4b3b953579b2b806"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test015_multi_queries_caveats.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test015_multi_queries_caveats.bc",
+          "sha256": "a7d44b0bf645370ca70b9e1b3a02fd6fbf0f6357de312fdee55a0117472f9f74"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test016_caveat_head_name.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test016_caveat_head_name.bc",
+          "sha256": "63ba8d39767acdeb6380fa76bbd810a5925e76c3d69132b605b63f8f60a753d5"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test017_expressions.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test017_expressions.bc",
+          "sha256": "80af01e452952ea50b56b69040d5776167ecdd3c5ef218a5dda82f7ef5d417b5"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test018_unbound_variables_in_rule.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test018_unbound_variables_in_rule.bc",
+          "sha256": "b3aeef0b3788ae06c58f27111151fac40457efbe427d329918645b258d472717"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test019_generating_ambient_from_variables.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test019_generating_ambient_from_variables.bc",
+          "sha256": "5e169b89b2a9a73641c83fcfe37f77dc5afa9f448910ba7d1e06e64f6143216d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test020_sealed.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test020_sealed.bc",
+          "sha256": "5e082ea00d18d2c2a03a13456b3bf30f4da2f1953c42cf450b81e7cfc9b7a67c"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test021_parsing.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test021_parsing.bc",
+          "sha256": "28a2bc55a1b629332e18aee66777501d4023ff87835be5c9054f2db776409970"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test022_default_symbols.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test022_default_symbols.bc",
+          "sha256": "796e475418c5cd607fb3dc7f00eb39b0c1e775dedbd6188cd29a892c9d863075"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test023_execution_scope.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test023_execution_scope.bc",
+          "sha256": "71dd572ee58498a58f508b432dc835949c6e4195d10683a72e3884cd61cb4ae9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test024_third_party.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test024_third_party.bc",
+          "sha256": "ee1aeb495d4ce046205737b17a8a5c7a8122308f3fc1436941ef23aaa27d7fea"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test025_check_all.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test025_check_all.bc",
+          "sha256": "c2dfbb27e52dd40fbdb03ace4afa8973de388aa4f1ff448245fb6d8ac45abec9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test026_public_keys_interning.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test026_public_keys_interning.bc",
+          "sha256": "abe81f935ee16665b1b842b50b95f994a5f08e89a07ebff4e77b233954d58d8a"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test027_integer_wraparound.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test027_integer_wraparound.bc",
+          "sha256": "3fb43b300eb04d7336c363a5a4401d9c3bec1903874931a485096995d84076bc"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test028_expressions_v4.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test028_expressions_v4.bc",
+          "sha256": "ca4095b1f6ec67cd1dcea66578aa00226caf04b4d281dd6faca3cdcf65680d09"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test029_reject_if.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test029_reject_if.bc",
+          "sha256": "2b1124a43b15ac13ab609b7823686854a3031f8e987aa826b605aa9dc23d2e95"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test030_null.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test030_null.bc",
+          "sha256": "718210dc1ed06a9f005bf107bfeab7af7d16dff198387b0239e86f85c60707e7"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test031_heterogeneous_equal.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test031_heterogeneous_equal.bc",
+          "sha256": "142c07b40055f7cd80c2adc87801db5becd6b9edbe9d5df1113a9b022ee56e51"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test032_laziness_closures.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test032_laziness_closures.bc",
+          "sha256": "07d52c29d7dd82ac07deb9070309783c14390c1ff7c5a5ef28f67d516d98c5fa"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test033_typeof.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test033_typeof.bc",
+          "sha256": "41539e89f6e7b2660e7a941b42f85a2a71c8523f7e5ba5210174a75f79ea9aa9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test034_array_map.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test034_array_map.bc",
+          "sha256": "1d2002b917311db0542b86d699ab76d08a9f0e5c5c1a664ffa7ff024d2f8cb41"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test035_ffi.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test035_ffi.bc",
+          "sha256": "7c0353a3185a86dbf20caf91f03618bf95dbc168f456b1db74043eaf643f6328"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test036_secp256r1.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test036_secp256r1.bc",
+          "sha256": "6d6e91c3a00446e9ec3bceaa2e408f1ac99afa341943c00e5d007a64a20dbe02"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test037_secp256r1_third_party.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test037_secp256r1_third_party.bc",
+          "sha256": "dc1bf1e88129fa92ded998dfedc76b1b8fbd4f9f320a6d1c636d51b3be8dfc28"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/samples/test038_try_op.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/samples/test038_try_op.bc",
+          "sha256": "f44838b71b8cc7d49ec77955e806dfbc80510bf0f6f32d4f318cb20f6fa7ac73"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/bwk.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/bwk.rs",
+          "sha256": "8217b4bc705779d22fe1f81f11f8ec910518bcdc7ccef35f6af10a2ddb706a27"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/crypto/ed25519.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/crypto/ed25519.rs",
+          "sha256": "008ba96a492a529ebb5cf14c88352de9640bbcf4f856fc060bb3463b7154e4a7"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/crypto/mod.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/crypto/mod.rs",
+          "sha256": "031f3f8e4c7d4b5be3a7c4d352afde77a625bd8ab0233d4562dab6c052b9d149"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/crypto/p256.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/crypto/p256.rs",
+          "sha256": "08694fd87421f94d22699d46d6143b863fd6ecd347fffbb4bda37f0f34c8c8fe"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/datalog/expression.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/datalog/expression.rs",
+          "sha256": "6d1f2456fdc8ee1e8745af238218cda6b6b059c709070643e42d7310d5017b52"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/datalog/mod.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/datalog/mod.rs",
+          "sha256": "14eb50396d8776a05c23de7e6286d949857943d9a18e830486924bad62c6b3d3"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/datalog/origin.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/datalog/origin.rs",
+          "sha256": "b96327673cdd4b284724d095144984889f094b3d9cdbf57abae01a4fe570299f"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/datalog/symbol.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/datalog/symbol.rs",
+          "sha256": "19c9df2fe3bb2f9fda210c63f835dd3545eb637ec91ee05713d2aa8017d526d9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/error.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/error.rs",
+          "sha256": "d9f30c90f814450ff42f6d4d9ca82ddb1abdf11ca313bf576cb1c1cf713c946d"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/format/convert.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/format/convert.rs",
+          "sha256": "0d8c5cad4729854dd4aa6e6a68b7c061f608e12be2d509b2a6856b8741fae682"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/format/mod.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/format/mod.rs",
+          "sha256": "9926829785ac46966860e04e1c8fb55c84cfa85926a230c5e3521cbe660e3190"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/format/schema.proto",
+          "destination": "third_party/biscuit-auth-6.0.0/src/format/schema.proto",
+          "sha256": "94ba0931dd990484c882bd332f72e0228a74c85f4275838f1c387416f4faba3e"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/format/schema.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/format/schema.rs",
+          "sha256": "d8b3d77743a5822470b9184704f63f654f0abd7c7bff4dd0dbad8cdbd510a1f3"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/lib.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/lib.rs",
+          "sha256": "34ecf557de156d0d1e2ed5fc9c70085fcedf46d9e1084605892a1dbd4bc521f9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/macros.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/macros.rs",
+          "sha256": "f5251d9cccb63647091d6bf804442715d04eb806ddc1dcc5541cac5e19ed3dc9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/parser.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/parser.rs",
+          "sha256": "aa650a7792a1093404cf8bf3d3e0fe42bcbf3e9d11b8493a17b6b1cb381e0504"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/time.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/time.rs",
+          "sha256": "b550f701dceff37b628b188eaa4d5278f041e5ea47b0f2d9ccde3f0b1498c158"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/authorizer.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/authorizer.rs",
+          "sha256": "8a7d2e7b0eab5a53303884026c5b55033b68f1da8e0799200f24da32a4a46346"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/authorizer/snapshot.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/authorizer/snapshot.rs",
+          "sha256": "6e2696f1df4867171badba50bd4eb2c4a9a85067bc369ee36368f44a04d194e4"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/block.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/block.rs",
+          "sha256": "baaf62dcf176f60dae0ba76605799d11fe4affebb80fc7dc5b9b977edd27f1d6"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder.rs",
+          "sha256": "4c11ba86d0ed7c8b3dd3776d150154a5bfc104ea45b98a1cbb84639afeb48372"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/algorithm.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/algorithm.rs",
+          "sha256": "fcd83c6662b6fdf63c79294aa47f64446e0d3bba9a12830d68740c3b07e7d782"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/authorizer.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/authorizer.rs",
+          "sha256": "4c5812ddbce6af1ad2ed38f7b345ab11d3518c052a9226a38c29929aafbf593c"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/biscuit.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/biscuit.rs",
+          "sha256": "d62aded81b07611bad319b8c95d214e823d03eee05d0ba07553a37030232c8b6"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/block.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/block.rs",
+          "sha256": "0e9ae7fb285e7c7e01ad8d089675381e696a596c45941678800ff648c99be104"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/check.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/check.rs",
+          "sha256": "d181c20f09258be63232192101a63fceedc0059f794e89e2803cd5585b462472"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/expression.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/expression.rs",
+          "sha256": "053dad154b323a0bd705711540f56912377d373aad4f4a60bf817158406c9df9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/fact.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/fact.rs",
+          "sha256": "af354be848ed42aba1525055be62cfa6b4edaff2d51d000401da2f11c91cd118"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/policy.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/policy.rs",
+          "sha256": "b4b0725874817ac463c34ccc8acb81c5f3430f5ccf0f353821941426dd98f529"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/predicate.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/predicate.rs",
+          "sha256": "9f6b603fa5b6745b804f6fa6f5b38ff01d1d907a069f4a6a4b587b00ade8bc36"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/rule.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/rule.rs",
+          "sha256": "7bbd70b3dfeaec0f625abac421cdff5b99f3853357810f86e6fc8d9f61f832f9"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/scope.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/scope.rs",
+          "sha256": "cd4d1a73e003f7dac021ada3036fbacdd04ad9c05d86dd484cf3f53ed56e0595"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder/term.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder/term.rs",
+          "sha256": "ca823bb92686b416bdbfc90a4b615591d2a8711f690a9e03fe4432d50b8a0f01"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/builder_ext.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/builder_ext.rs",
+          "sha256": "dc2c159bdd14618a638641fa48ad01b5609928209170b267c9730d7e0df1e3e3"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/mod.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/mod.rs",
+          "sha256": "31d825e667107c388c814fde83687058f14ed198a3aeb21f2b7d2bd3864a1a7f"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/public_keys.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/public_keys.rs",
+          "sha256": "2676dc723285771903fe7e0f19636d53107bcfc5f0969c3ece1e6ea0974a6a8c"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/third_party.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/third_party.rs",
+          "sha256": "903a03abaac2e9af03e379d9e0cea68f500ce768636ca852af7e9bd4fe2336b2"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/src/token/unverified.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/src/token/unverified.rs",
+          "sha256": "c1cb2bf8068af56362e5c8055cf9d5362678628db56520558bdb6d7c82b15740"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/tests/fixtures/unsafe_third_party.bc",
+          "destination": "third_party/biscuit-auth-6.0.0/tests/fixtures/unsafe_third_party.bc",
+          "sha256": "ac82e14893815afe76faba1a8d1ed8f7ddb10d2bf8c0afe933494ff9909ce790"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/tests/macros.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/tests/macros.rs",
+          "sha256": "d2b0b1e2806f33ebf1e73d914f3f5f14283d07119da83e5f7b2ef913ac0ffc09"
+        },
+        {
+          "sourcePath": "third_party/biscuit-auth-6.0.0/tests/rights.rs",
+          "destination": "third_party/biscuit-auth-6.0.0/tests/rights.rs",
+          "sha256": "c1c068688d2eaacf14df99872b40b824af6b96be61b5be43e34caeb796c8e94d"
+        },
+        {
+          "sourcePath": "third_party/patches/biscuit-auth-6.0.0-upstream-306.diff",
+          "destination": "third_party/patches/biscuit-auth-6.0.0-upstream-306.diff",
+          "sha256": "ef06cb26960989e0853ce550080d5fbfef23171105da384fcc88793a8a5b8ecb"
+        },
+        {
+          "sourcePath": "tsconfig.json",
+          "destination": "tsconfig.json",
+          "sha256": "ecf2671adb2ddf093239e84aef14c4da6051a489e394fa84fe4cc92216fdfb5b"
+        },
+        {
+          "sourcePath": "vendored/authz/agent-runs-v1.datalog",
+          "destination": "vendored/authz/agent-runs-v1.datalog",
+          "sha256": "f20dae7884e49fa00982044a51e99b7f09a5598487bc21f222fcb2d692e3126b"
+        },
+        {
+          "sourcePath": "vendored/authz/agent-runs-v2.datalog",
+          "destination": "vendored/authz/agent-runs-v2.datalog",
+          "sha256": "de119ba6fe0679793403a66e9b5c29f69a781b53d6eb255e17888c8bb6c2cf37"
+        },
+        {
+          "sourcePath": "vendored/authz/authority-v1.datalog",
+          "destination": "vendored/authz/authority-v1.datalog",
+          "sha256": "eb88b62cd252414bf80089f9be7478475310b3b25d88da528d389a4971e310ea"
+        },
+        {
+          "sourcePath": "vendored/authz/authority-v2.datalog",
+          "destination": "vendored/authz/authority-v2.datalog",
+          "sha256": "f5c0648cf0c2ebf43f73a444ca4df0a84a7349c02d7d0cc31cc86c77daf1db58"
+        },
+        {
+          "sourcePath": "vendored/authz/missions-v1.datalog",
+          "destination": "vendored/authz/missions-v1.datalog",
+          "sha256": "9bfa33eda5e34b8a8d1262881fc951e2455c47769ccaf48d0359bed14a20d2be"
+        },
+        {
+          "sourcePath": "vendored/authz/sessions-v1.datalog",
+          "destination": "vendored/authz/sessions-v1.datalog",
+          "sha256": "93bc93e9a4c7b17716787bc9b56df592652b1df0f02d581765cc61010ecaefe1"
+        }
+      ]
+    }
+  ],
+  "sourceWorkflowsActivated": false,
+  "sourceAgentInstructionsImported": false,
+  "qualification": "pending local migration checks"
+}
