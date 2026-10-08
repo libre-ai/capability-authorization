@@ -18,4 +18,18 @@ Services need permissions that specify which action is allowed on which resource
 
 Source code and tests are available in this repository; no package is published to a registry.
 
+## Project status
+
+<!-- libre-ai:project-status:begin -->
+<!-- Section générée depuis project.v1.yaml — ne pas éditer à la main. -->
+
+- Situation actuelle : Née verte en γ 3.4 ; six politiques datalog vendorées sous gate de dérive contre le pin contracts.
+- Maturité : usable
+- Exposition : spec-published
+- Confiance : medium
+- Preuves vérifiées le : 2026-07-30
+- Avancement : 50 % du périmètre actuellement déclaré
+
+<!-- libre-ai:project-status:end -->
+
 Explore the [Libre AI project catalogue](https://github.com/libre-ai/.github/blob/main/profile/README.md).
