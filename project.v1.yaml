@@ -1,7 +1,7 @@
 # Fiche d'état du projet — autorité de l'état depuis ADR-0020 (design §6.2).
 # La section statut du README est générée depuis cette fiche (sentinelles).
 schema_version: libre-ai.project.v1
-project: authz-biscuit
+project: capability-authorization
 repository: libre-ai/capability-authorization
 kind: satellite
 layer: couche-3
