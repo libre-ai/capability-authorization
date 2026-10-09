@@ -48,7 +48,7 @@ dependencies:
     # révision qui existe. Aucun manifeste de ce dépôt ne dépendait du retiré :
     # mesuré sur 105 manifestes des 29 dépôts de l'organisation.
     why: "gabarit de gates consommé en workflows réutilisables et git-dep d'outillage — jamais dupliqué"
-    pinned: "github:libre-ai/project-governance#7c2238d6185e59d446586688ca7db32e6a17d3e0"
+    pinned: "github:libre-ai/project-governance#1c8b37c80beb41f640982768ec27304a911e0b8e"
   - on: biscuit-auth
     why: "primitives Biscuit Ed25519 — release exacte 6.0.0, default-features désactivées, résolue vers une copie vendorée (archive publiée + correctif amont #306, third_party/biscuit-auth-6.0.0/PATCH.md) retirée dès qu'une version publiée porte le correctif"
     pinned: "=6.0.0 via [patch.crates-io] (avec biscuit-parser =0.2.0, grammaire datalog 3.3 correspondante — preuve d'injectivité evidence/reviews/bfc2c0d/)"
