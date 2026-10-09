@@ -6,7 +6,7 @@ The Rust crate stays at the repository root with its existing package name, publ
 
 The recovery origin and exact incoming file hashes are recorded in `code-recovery-provenance.json`. Original documentation is retained separately from the public project introduction. No historical deployment workflow is activated.
 
-Use the [shared local composition guide](https://github.com/libre-ai/project-governance/blob/main/docs/LOCAL-COMPOSITION.md) with target `capability-authorization` and the full commit ID to verify. It prepares all pinned sibling sources before ordered installation and builds UI before consumers. Run this component’s commands from its root inside that composition. Packages retain independent names, imports and versions; no registry release is implied.
+Use the [shared local composition guide](https://github.com/libre-ai/project-governance/blob/HEAD/docs/LOCAL-COMPOSITION.md) with target `capability-authorization` and the full commit ID to verify. It prepares all pinned sibling sources before ordered installation and builds UI before consumers. Run this component’s commands from its root inside that composition. Packages retain independent names, imports and versions; no registry release is implied.
 
 Use the exact Bun toolchain declared in package manifests. Rust crates additionally declare Rust 1.97.0. Review dependency manifests and scripts before installation. `bun run check` runs the available source checks; `cargo test --locked --all-features` runs each Rust crate's tests. Multi-package roots dispatch checks and tests to their packages. SQL integration tests use the testing package's PGlite fixture, not a production database. WebSocket tests require local socket permission.
 
