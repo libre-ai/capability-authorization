@@ -21,6 +21,22 @@ all-features = true
 
 [advisories]
 yanked = "deny"
+# Stated, not inherited: cargo-deny 0.22.0 narrowed its default scope for
+# unmaintained-crate advisories from `all` to `workspace` (direct dependencies
+# of workspace crates only). `all` is what 0.19.5, the version this file was
+# written for, applied when the key was absent; writing it keeps unmaintained
+# advisories reported on the whole graph whichever version reads this file.
+# It covers `unmaintained` only: `unsound` is not written here and stays at
+# its default, `workspace` under both versions.
+unmaintained = "all"
+# Owner decision 2026-11-24 (ADVISORY-WAIVER-POLICY.md of libre-ai/project-governance):
+# an advisory with no stable upstream fix is waived with a date and a record,
+# never silenced. The review anchor is the day the list was read against the
+# resolved graph (`cargo deny check advisories`, cargo-deny 0.19.5).
+# waiver-review-anchor: 2026-11-24
+ignore = [
+  "RUSTSEC-2026-0387", # crypto-bigint 0.5.5 timing variability, fixed in >=0.7.6, but elliptic-curve 0.13.8 requires crypto-bigint ^0.5 and the vendored biscuit-auth 6.0.0 requires p256 ^0.13.2 and ecdsa ^0.16.9; only biscuit-auth 7.0.0-alpha releases accept the 0.14 line, no alpha adopted; expires=2027-02-24; ref=https://rustsec.org/advisories/RUSTSEC-2026-0387
+]
 
 [licenses]
 confidence-threshold = 0.9
